@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>IPM | Watchlist</title>
+
+<style>
+#stockContainer, #stockIndicator { width:500px; }
+#stockContainer		{ background:#343434; padding:10px; }
+#stockIndicator		{ text-align:right; visibility:hidden; padding:5px; }
+.stockRow			{ padding:5px 10px; clear:both; margin-bottom:5px; }
+	.stockName		{ font-size:14px; font-weight:normal; float:left; }
+	.stockData		{ font-size:11px; float:right; width:200px; text-align:right; }
+
+/* stock differential */`
+.stockSame			{  }
+.stockUp			{ background:lightgreen; }
+	.stockUp .stockName	{ color:green; }
+.stockDown			{ background:pink; }
+	.stockDown .stockName { color:red; }
+</style>
+ <script type='text/javascript'> 
+// When the dom is ready...
+window.addEvent("domready",function() {
+	// Get the stock container and indicator
+	var container = document.id("stockContainer");
+	var indicator = document.id("stockIndicator");
+	// Create the instance
+	var request = new Request.Stocks({
+		// Stocks to retrieve
+		stocks: ["AAPL","GOOG","MSFT"],
+		// Formatter upon result
+		onComplete: function(result) {
+			// Log out the result to see the structure
+			console.warn(result);
+			// Hide the indicator
+			indicator.fade(0);
+			// Create a template with which to display the information
+			var template = ' \
+				<div class="stockRow stock{UpDown}"> \
+					<div class="stockName">({symbol}) {Name}</div>\
+					<div class="stockData">{Ask} {Change} {ChangeinPercent}</div> \
+					<br class="clear" /> \
+				</div> \
+			';
+			// For every stock , display its information in the template
+			var html ="";
+			Array.from(result.query.results.quote).each(function(quote) {
+				// Add an "UpDown" property to the quote object
+				var change = Number.from(quote.Change);
+				quote.UpDown =  change == 0 ? "Same" : change > 0 ? "Up" : "Down";
+				// Update running contnet
+				html += template.substitute(quote);
+			});
+			// Update the content
+			container.set("html",html);
+		},
+		// Show the indicator upon request
+		onRequest: function () {
+			indicator.fade(1);
+		}
+	});
+	// Send the request every 20 seconds
+	(function() {
+		request.send();
+	}).periodical(20 * 1000);
+	// Send right away
+	request.send();
+</script>	
+</head>
+<body>
+
+<div id="stockIndicator">Retrieving stock information....</div>
+<div id="stockContainer"></div>
+</body>
+</html>

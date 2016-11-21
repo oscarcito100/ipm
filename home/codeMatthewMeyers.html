@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>IPM:International Portfolio Manager</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/overrides.css" rel="stylesheet">
+	<link rel="icon" href="/favicon.ico">
+	<!--<script src="yahoofinance.js"></script>-->
+	<script src="http://www.google.com/jsapi"></script>
+	<script type="text/javascript">
+	//GOOGLE CHART
+	//load the visualization APi and the piechart package
+	google.load('visualization', '1.0', {'packages':['corechart']});
+	//set a callbacl to run ehen the google visualization api is loaded
+	google.setOnLoadCallback(drawChart);
+	// callback that creates and ppulates a data table. instatiate tje piechart and passes in the data and draws it
+	var data = getData("year");
+	var options = {'title': 'YAHOO',
+					'width':600,
+					'height':400,
+					'titleTextStyle':{color:'white', fontName:'GillSans'},
+					'legendTextStyle':{color:'white', fontName:'GillSans'},
+					'chartArea.width':200,
+	};
+	function drawChart(){
+		//create tje data table
+		var chartData = google.visualization.arrayToDataTable(data);
+		//instatiate and draw pur chart, passing in some options
+		var chart = new google.visualization.LineChart(document.getElementById("chart_div"));
+		chart.draw(chartData, options);
+	}
+	function getData(dataRange){
+		var dataArray = [
+			['Date', 'Stock Value'],
+		]
+		if(dataRange == "year"){
+			dataArray = [
+			['Year', 'Stock Price'],
+			['Jan', 100],
+			['Feb', 117],
+			['Mar', 66],
+			['Apr', 103],
+			['May', 123],
+			['Jun', 150],
+			['Jul', 180],
+			['Agu', 90],
+			['Sep', 110],
+			['Oct', 115],
+			['Nov',130],
+			['Dec',130],
+			];
+		} else if (dataRange == "halfyear"){
+			dataArray = [
+			['Year', 'Stock Price'],
+			['Jan 1', 80],
+			['Jan 15', 105],
+			['Feb 1', 117],
+			['Feb 15', 73],
+			['Mar 1', 105],
+			['Mar 15', 125],
+			['Apr 1', 140],
+			['Apr 15', 90],
+			['May 1', 128],
+			['May 15', 85],
+			['Jun 1',100],
+			['Jun 15',110],
+			];
+		};
+		return dataArray;
+	};
+	function buttonPressed(buttonTitle){
+		data = getData(buttonTitle);
+		//create the data table
+		var chartData = google.visualization.arrayToDataTable(data);
+		//instantieae and draw pur chart passing in options
+		var chart = new google.visualization.LineChart(document.getElementById("chart_div"));
+		chart.draw(chartData, options);
+	};
+	</script>
+
+</head>
+<body>
+	<a href="../home/home.html" title="Clik here to return to the home page">
+	<img src="../images/logo.gif" alt="International Portfolio Manager" height="150" width="300"/></a>
+		<div>
+			HOME
+			<a href="../watchlist/watchlist.html">WATCHLIST</a>
+			<a href="../calculator/calculator.html">CALCULATOR</a>
+			<a href="../portfolio/portfolio.html">PORTFOLIO MANAGER</a>
+			<a href="../contact/contact.html">CONTACT</a>
+		</div>
+     <form>
+		<button type="button" onclick="">DJIA</button>
+		<button type="button" onclick="">DAX</button>
+		<button type="button" onclick="">FTSE 100</button>
+	</form>
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle=".navbar-collapse">
+					<span class="sr-only">Toogle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="s">Project Name</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="s">Home</a>
+					</li>
+					<li>
+						<a href="about">About></a>	
+					</li>
+					<li>
+						<a href="contact">Contact></a>	
+					</li>
+					<li class="dropdown">
+						<a href="s" class="dropdown-toggle" data-toggle="dropdown">Dropdown<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="s">Action</a></li>
+							<li><a href="s">Another Action</a></li>
+							<li class="divider"</li>
+							<li class="dropdown-header">Nav header</li>
+							<li><a href="s">f</a></li>
+							<li><a href="s">r</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">Data visualization</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="chart_div"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<button type="button" class="btn btn-default" onclick="buttonPressed('year')">1y</button>
+				<button type="button" class="btn btn-default" onclick="buttonPressed('halfyear')">6m</button>				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p id="change"></p>
+			</div>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		var BASE_URL = 'https://query.yahooapis.com/v1/public/yql?q=';
+		var yql_query = 'select * from yahoo.finance.quote where symbol in ("YHOO","AAPL","GOOG","MSFT")';
+		var yql_query_str = encodeURI(BASE_URL+yql_query);
+		var query_str_final = yql_query_str + "&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+
+		$(document).ready(function(){
+			//use JQuery function
+			$.getJSON(query_str_final, function(data){
+				var stockQuotes = data.query.results.quote;
+				//for(var i = 0; i < stockQuotes.length; i++){
+					//var current = stockQuotes[i];
+					//console.log(current.Change);					
+				
+			    $.each(stockQuotes, function(i, quote){
+					$('#change').append('<p>Change: ' + quote.Change + '</p>');
+					//console.log(data);
+				});
+					//var change = stockQuotes.Change;
+					//document.getElementById("change").innerHTML = "% Change is " + change;
+			});
+		});
+	</script>
+</body>
+</html>
+	

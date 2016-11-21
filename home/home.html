@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>IPM:International Portfolio Manager Homepage</title>
+	<!--JQuery AJAX library-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet"  type="text/css" href="../css/marketMenu.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+</head>
+<body>
+<div class="header">
+	<div>
+		<a href="../home/home.html" title="Clik here to return to the home page">
+		<img src="../images/logo.gif" alt="International Portfolio Manager" height="150" width="300"/></a>
+	</div>
+	<div>
+		<ul>
+			HOME
+			<li><a href="../market/market.html">MARKET</a></li>
+			<li><a href="../watchlist/watchlist.html">WATCHLIST</a></li>
+			<li><a href="../calculator/calculator.html">CALCULATOR</a></li>
+			<li><a href="../portfolio/portfolio.html">PORTFOLIO MANAGER</a></li>
+			<li><a href="../contact/contact.html">CONTACT</a></li>
+		</ul>
+	</div>
+</div>
+    <form>
+		<button id="djiaButton" type="button" disabled>DJIA</button>
+		<a href="dax.html"><button id="daxButton" type="button">DAX</button></a>
+		<a href="ftse100.html"><button id="ftse100Button"type="button">FTSE 100</button></a>
+		<a href="../currencies/currencies.html"><button id="currenciesButton"type="button">MAJOR CURRENCIES</button></a>
+	</form>
+	<table id="stockTable">
+		<tr>
+			<th>Symbol</th>
+			<th>Name</th>
+			<th>Last Price</th>
+			<th>Change</th>
+			<th>% Change</th>
+			<th>Time</th>
+			<th>Date</th>
+		</tr>
+	</table>
+<p>Quotes delayed. Currency in USD.</p>
+<script>
+var BASE_URL = 'https://query.yahooapis.com/v1/public/yql?q=';
+var yql_query = 'select * from yahoo.finance.quotes where symbol in ("AAPL","AXP","BA","CAT","CSCO","CVX","DD","DIS","GE","GS","HD","IBM","INTC","JNJ","JPM","KO","MCD","MMM","MRK","MSFT","NKE","PFE","PG","TRV","UNH","UTX","V","VZ","WMT","XOM")';
+var yql_query_str = encodeURI(BASE_URL+yql_query);
+var query_str_final = yql_query_str + "&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=";
+var aaple, axp, ba;
+$(document).ready(function(){
+	$.getJSON(query_str_final, function(data){
+		var stockQuotes = data.query.results.quote;
+		for(var i = 0; i < stockQuotes.length; i++){
+			var stockData = stockQuotes[i];
+				$("#stockTable").append("<tr><td><a href='../quotes/apple.html'</a>" + stockData.Symbol + "</td><td>" + stockData.Name + "</td><td>" + stockData.LastTradePriceOnly + "</td><td>" + 
+				stockData.Change + "</td><td>" + stockData.PercentChange + "</td><td>" + stockData.LastTradeTime + "</td><td>" + stockData.LastTradeDate + "</td></tr>");	
+			switch(i){
+				case 0:
+
+				break;
+			
+			};
+		};
+	});
+});
+</script>
+
+</body>
+</html>

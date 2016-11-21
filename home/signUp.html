@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Register in IPM</title>
+	<link rel="stylesheet" type="text/css" href="../css/signUp.css"> 
+	<link rel="stylesheet"  type="text/css" href="../css/logIn.css">
+	<script src="../js/validateRegisterForm.js"></script> <!-- validate sign up form with js-->
+	<script src="../js/validateLogInForm.js"></script> <!-- validate log in form with js-->
+</head>
+<body id="bodySingUp">
+<!--Sign up form-->
+	<form name="registerForm" action="../php/users.php" onsubmit="return validateRegisterForm()" method="post"> 
+		<fieldset id="signUpContent">
+			<div id="signUpTitle">Create your IPM account</div>
+			<span id="requiredField">* required field</span>
+			<label class="signUpTitles">Username:</label><span class="asterisk"> *</span><br/>
+			<input type="text" class="signUpFields" id="username" name="username" size="50" placeholder="letters and numbers only" required/><span class="error"><?php echo $usernameErr;?></span>
+			<br/>			
+			<label class="signUpTitles">Email:</label><span class="asterisk"> *</span><br/>
+			<input type="email" class="signUpFields" id="email" size="50" placeholder="example@gmail.com" name="email" required/><span class="error"><?php echo $emailErr;?></span>
+			<br/>
+			<label class="signUpTitles">Password:</label><span class="asterisk"> *</span><br/>
+			<input type="password" class="signUpFields" id="password" name="password" size="50" placeholder="10 to 20 characters"  minlength="10" maxlength="20" required/><span class="error"><?php echo $passwordErr;?></span>
+			<br/>
+			<label class="signUpTitles">Confirm password:</label><span class="asterisk"> *</span><br/>
+			<input type="password" class="signUpFields" name="confirmPassword" id="confirmPassword" size="50" placeholder="Repeat your password" minlength="10" maxlength="20" required/>
+			<br/>
+			<div class="signUpContainerBottom">
+			<span class="signUpContainerButton"><a href="home.php"><button type="button" class="signUpCancelButton" title="Cancel Sing up">CANCEL</button></a>
+			<button type="submit" class="signUpButton" name="submit">CREATE ACCOUNT</button></span>
+			<p class="signUpFooter">Already have an account? <a href="#signInModal" onclick="document.getElementById('signInModal').style.display='block'">Log in</a>
+			<p class="signUpFooter">By proceeding, you agree to the IPM's Terms of service & Privacy policy</p>
+			</div>
+		</fieldset>
+	</form>
+<!-- The  Log in Modal -->
+<div id="signInModal" class="modal">
+	<span onclick="document.getElementById('signInModal').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<!-- Modal Content -->
+	<form class="modal-content animate" action="../php/logIn.php" name="formLogIn" onsubmit="return validateLogInForm()" method="post"> 
+		<div class="container">
+			<label class="formTitles">Username:</label><br/>
+			<input class="logInFields" type="text" name="username" size="50" placeholder="Enter Username" minlength="6" required/> 			
+			<label class="formTitles">Password:</label><br/>
+			<input class="logInFields" type="password" name="password" size="50" placeholder="Enter Password" minlength="10" maxlength="20" required/>
+			<input type="checkbox" name="checkRemember" checked="checked"/> Remember me 
+			<span class="rightSide"><a href="lostPassword.html">Retrieve Password</a></span>
+			<button type="submit" class="logInButton" title="register" name="submit">LOG IN</button><br/>
+		</div>
+		<div class="containerBottom">
+			<button type="button" class="cancelButton" onclick="document.getElementById('signInModal').style.display='none'" title="Cancel Log in">CANCEL</button><br/>
+			<p class="footerLogIn">Don't you have an account? <a href="../home/signUp.html">Register now here</a></p>
+			<p class="footerLogIn">By proceeding, you agree to the IPM's Terms of service & Privacy policy</p>
+		</div>
+	</form>
+</div>
+<script>
+// Get the modal for sign in
+var signInModal = document.getElementById('signInModal');
+// When the user clicks anywhere outside of the modal, close it
+ window.onclick = function(event) {
+    if (event.target == signInModal) {
+        signInModal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
