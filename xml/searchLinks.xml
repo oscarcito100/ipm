@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<asset>
+	<company>
+		<name>AAPL, Apple Inc</name>
+		<url>../quotes/dow30/apple.php</url>
+	</company>
+	<company>
+		<name>AXP, American Express Company</name>
+		<url>../quotes/dow30/axp.php</url>
+	</company>
+	<company>
+		<name>BA, Boing Company</name>
+		<url>../quotes/dow30/ba.php</url>
+	</company>
+	<company>
+		<name>CAT, Caterpillar Inc</name>
+		<url>../quotes/dow30/cat.php</url>
+	</company>
+	<company>
+		<name>CVX, Chevron Corporation</name>
+		<url>../quotes/dow30/cvx.php'</url>
+	</company>
+	<company>
+		<name>DD, E.I. du Pont de Nemours </name>
+		<url>../quotes/dow30/dd.php'</url>
+	</company>
+	<company>
+		<name>DIS, Walt Disney Company</name>
+		<url>../quotes/dow30/dis.php'</url>
+	</company>
+	<company>
+		<name>GE, General Electric Company</name>
+		<url>../quotes/dow30/ge.php'</url>
+	</company>
+	<company>
+		<name>GS, Goldman Sachs Group Inc.</name>
+		<url>../quotes/dow30/gs.php'</url>
+	</company>
+	<company>
+		<name>HD, Home Depot Inc.</name>
+		<url>../quotes/dow30/hd.php'</url>
+	</company>
+	<company>
+		<name>IBM, International Business Machines</name>
+		<url>../quotes/dow30/ibm.php'</url>
+	</company>
+	<company>
+		<name>INTC, Intel Corporation</name>
+		<url>../quotes/dow30/intc.php'</url>
+	</company>
+	<company>
+		<name>JNG, Johnson and Johnson </name>
+		<url>../quotes/dow30/jng.php'</url>
+	</company>
+	<company>
+		<name>JPM, JP Morgan Chase and Co.</name>
+		<url>../quotes/dow30/jpm.php'</url>
+	</company>
+	<company>
+		<name>KO, Coca-Cola Company</name>
+		<url>../quotes/dow30/ko.php'</url>
+	</company>
+	<company>
+		<name>MCD, McDonald's Corporation</name>
+		<url>../quotes/dow30/mcd.php'</url>
+	</company>
+	<company>
+		<name>MMM, 3M Company</name>
+		<url>../quotes/dow30/mmm.php'</url>
+	</company>
+	<company>
+		<name>MRK, Merck and Company Inc</name>
+		<url>../quotes/dow30/mrk.php'</url>
+	</company>
+	<company>
+		<name>MSFT, Microsoft Corporation</name>
+		<url>../quotes/dow30/msft.php'</url>
+	</company>
+	<company>
+		<name>NKE, Nike Inc.</name>
+		<url>../quotes/dow30/nke.php'</url>
+	</company>
+	<company>
+		<name>PFE, Pfizer Inc. </name>
+		<url>../quotes/dow30/pfe.php'</url>
+	</company>
+	<company>
+		<name>PG, Procter and Gamble Company </name>
+		<url>../quotes/dow30/pg.php'</url>
+	</company>
+	<company>
+		<name>TRV, The Travelers Companies Inc</name>
+		<url>../quotes/dow30/trv.php'</url>
+	</company>
+	<company>
+		<name>UNH, UnitedHealth Group Incorporated</name>
+		<url>../quotes/dow30/unh.php'</url>
+	</company>
+	<company>
+		<name>UTX, United Technologies Corporation</name>
+		<url>../quotes/dow30/utx.php'</url>
+	</company>
+	<company>
+		<name>V, Visa Inc</name>
+		<url>../quotes/dow30/v.php'</url>
+	</company>
+	<company>
+		<name>VZ, Verizon Communications Inc</name>
+		<url>../quotes/dow30/vz.php'</url>
+	</company>
+	<company>
+		<name>WMT, Wal-Mart Stores Inc. </name>
+		<url>../quotes/dow30/wmt.php'</url>
+	</company>
+	<company>
+		<name>XOM, Exxon Mobil Corporation</name>
+		<url>../quotes/dow30/xom.php'</url>
+	</company>	
+</asset>
