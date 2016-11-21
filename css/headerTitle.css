@@ -1,0 +1,22 @@
+/* title of the content*/
+.titlePage{
+	margin-top: 90px;
+	background-color: #e6ffe6;
+	width: 99%;
+	padding: 10px 0 0 16px;
+}
+.titlePage2{
+	background-color: #e6ffe6;
+	width: 99%;
+	padding: 10px 0 0 16px;
+}
+.mainTitle{
+	font-size: 40px;
+	padding-right: 10px;
+}
+.titleLine{
+	border: 2px solid gray;
+}
+.subTitle{
+	color:blue;
+}

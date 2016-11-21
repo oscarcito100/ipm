@@ -1,0 +1,137 @@
+/* width of all the page*/
+body{
+	margin-left: 10%;
+	margin-right: 10%;
+	min-width: 50%;
+}
+/* header containing the fixed navbar*/
+.header{
+	top: 0;
+	position: fixed;
+	width:80%;
+	height: 75px;
+	background-color: black;
+	display: inline-block;
+	z-index: 1;
+}
+/* link image to homepage*/
+.home{
+	width: 20%;
+	padding: 5px;
+	left: 0;
+}
+.date{
+	position: absolute;
+	top: 0;
+	color: gray;
+	right: 20px;
+	float: right;
+	/*background-color: black;*/
+	margin-top: 5px;
+}
+/* search input and button*/
+.search{
+	top: 0;
+	position: absolute;
+	left: 200px;
+	margin-top: 5px;
+}
+/* register*/
+.sign{
+	position: absolute;
+	top: 40px;
+	color: gray;
+	right: 20px;
+	float: right;
+	/*background-color: black;*/
+	margin-top: 5px;
+	z-index: 1;
+}
+span.sign a{
+	color: white;
+	text-decoration: none;
+}
+span.sign a:hover{
+	color: red;
+}
+/*main navbar*/
+ul{
+	list-style-type: none;
+	padding: 0;
+	width: 80%;
+	/*background-color: black;*/
+	overflow: hidden;
+	position: absolute;
+	top: 17px;
+	left: 150px;
+}
+li{
+	float: left;
+	text-align: center;
+	border-right: 1px solid white;
+}
+li:last-child{
+	border-right: none;
+}
+li a{
+	display: block;
+	padding: 8px;
+	/*background-color: black;*/
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+li a:hover{
+	background-color: yellow;
+	color:red;
+}
+li a.active{
+	background-color: #4CAF50;
+	color: white;
+}
+/* style dropdown menu
+.active{
+	display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li.dropdown{
+	display: inline-block;
+	position: relative;
+}
+.dropdown-content{
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+.dropdown-content a{
+	color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	color: white;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown:hover .active{
+	background-color: #3e8e41;
+}*/
+/* search button in navbar*/
+.searchButton{
+	border-radius: 20px;
+	background-color: #f2f2f2;
+	color: blue;
+}
+.searchButton:hover{
+	color: red;
+}

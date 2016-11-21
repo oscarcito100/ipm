@@ -1,0 +1,163 @@
+#signUpModalTitle{
+	margin-top: 0;
+	text-align: center;
+}
+.signUpTopContainer{
+	background-color: #f2f2f2;
+	border-radius: 10px 10px 0px 0px;
+	top: 0;
+}
+#requiredField{
+	color: red;
+	float: right;
+	font-size: 12px;
+}
+.asterisk{
+	color: red;
+}
+.error{
+	color: red;
+	font-size: 12px;
+}
+/*input fields */
+.signUpFields{
+    width: 50%;
+    padding: 6px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+/* labels*/
+.signUpTitles{
+	font-weight: bold;
+	display: inline-block;
+}
+.signUpTitles:first-child{
+	padding-top: 0;
+}
+/* Set a style for Log in button */
+.signUpContainerButton{
+
+	display: inline-block:
+}
+.signUpButton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 18px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;	
+	border-radius: 15px;
+	width: 80%;
+}
+.signUpButton:hover{
+	color: black;
+}
+/* style for the cancel button */
+.signUpCancelButton{
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 15px;
+	cursor: pointer;
+	border: none;
+}
+.signUpCancelButton:hover{
+	background-color: white;
+	color: black;
+}
+/* Retrive password link
+span.rightSide{
+	float: right;
+	right: 0;
+}
+span.rightSide a{
+	text-decoration: none;
+}
+span.rightSide a:hover{
+	color: red;
+	text-decoration: underline;
+}*/
+/* top section of the modal*/
+.signUpContainer{
+    padding-left: 16px;
+}
+/* The Modal (background) */
+.signUpModal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+/* Modal Content-Box */
+.signUpModalContent{
+    background-color: #fefefe;
+    margin: 8px auto;
+    border: 1px solid #888;
+    width: 50%;
+	border-radius: 10px;
+}
+/* bottom of the modal*/
+.signUpContainerBottom{
+	background-color: #f2f2f2;
+	padding: 16px;
+	border-radius: 0px 0px 10px 10px;
+}
+/* bottom paragraphs*/
+p.signUpFooter{
+	color: black;
+	font-size: 16px;
+	text-align: left;
+}
+p.signUpFooter a{
+	text-decoration: none;
+	color: blue;
+}
+p.signUpFooter a:hover{
+	text-decoration: underline;
+	color: red;
+}
+/* The Close Button (x) */
+.closeSignUp{
+    /* Position it in the top right corner of the modal */
+    position: absolute;
+    right: 300px;
+    top: 50px; 
+    font-size: 35px;
+    font-weight: bold;
+	color: black;
+	border-radius: 10px;
+	background-color: white;
+	width: 40px;
+	text-align: center;
+}
+.closeSignUp:hover, .closeSignUp:focus {
+    color: red;
+    cursor: pointer;
+}
+/* Add Zoom Animation */
+.signUpanimate{
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}

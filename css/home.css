@@ -1,0 +1,105 @@
+/* layout of the main tables*/
+.stockTable{
+	border-collapse: collapse;
+	width: 70%;
+	text-align: left;
+	border: 1px solid #ddd;
+}
+/* layout right table*/
+#rightData{
+	border-collapse: collapse;
+	width: 280px;
+	text-align: left;
+	border: 1px solid #ddd;
+	font-size: 10px;
+	margin: 5px;
+}
+.stockTable, .stockTable th, .stockTable td{
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+#rightData, #rightData th, #rightData td{
+	padding: 5px;
+	border-bottom: 1px solid #ddd;
+}
+#rightData tr{
+	background-color: white;
+}
+.stockTable tr a, #rightData tr a{
+	text-decoration: none;
+	color: black;
+}
+.stockTable tr a:hover, #rightData tr a:hover{
+	text-decoration: underline;
+	color: red;
+}
+.stockTable tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+.stockTable tr:hover, #rightData tr:hover {
+	background-color: yellow;
+}
+.stockTable th, #rightData th{
+	background-color: #4CAF50;
+    color: white;
+}
+.stockTable caption, #rightData caption{
+	caption-side: bottom;
+	text-align: center;
+}
+/* wrap the right content*/
+.rightContent{
+	float: right;
+	position: absolute;
+	right: 10%;
+	top: 95px;
+	border: 1px solid #ddd;
+	background-color: #f2f2f2;
+	width: 290px;
+}
+/* title of the right content*/
+p{
+	font-size: 20px;
+	text-align: center;
+	margin: 5px;
+	color: blue;
+}
+/* anchor of the chart to chain the periods in righ content*/
+a.linkText{
+	font-size: 12px;
+	text-decoration: none;
+}
+a.linkText span:hover{
+	text-decoration: underline;	
+	font-size: 18px;
+}
+/* titles of the contens*/
+.homeTitles{
+	background-color: #e6ffe6;
+	width: 68%;
+	padding: 5px 0 0 16px;
+}
+.homeMainTitle{
+	font-size: 40px;
+	padding-right: 10px;
+	text-decoration: none;
+	color: black;
+}
+.homeMainTitle:hover{
+	text-decoration: underline;
+}
+.titleLine{
+	border: 2px solid gray;
+	width: 56%;
+	position: absolute;
+}
+.homeSubTitle{
+	color:blue;
+}
+
+/*#searchOutput{
+	border: 1px solid #A5ACB2;
+	background-color: white;
+	color: yelow;
+	
+}*/

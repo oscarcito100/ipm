@@ -1,0 +1,61 @@
+/* left content*/
+.portfolioLeftContent{
+	position: aboslute;
+	background-color: #ffffe6;
+	width: 43%;
+	margin-top: 20px;
+	margin-left: 2.5%;
+	padding: 10px;
+	opacity: 0.9;
+	text-align: justify;
+}
+.portfolioContentLine{
+	width: 80%
+}
+/* right content*/
+.portfolioRightContent{
+	position: absolute;
+	background-color: #ffffe6;
+	width: 35%;
+	top: 180px;
+	right: 12.5%;
+	padding: 5px 10px;
+	opacity: 0.9;
+	text-align: justify;
+}
+/* Set a style for Log in button */
+#logInPortfolioButton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;	
+	border-radius: 15px;
+}
+#logInPortfolioButton:hover{
+	color: black;
+}
+/* Set a style for Sign up button */
+#signUpPortfolioButton{
+	background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;	
+	border-radius: 15px;
+}
+#signUpPortfolioButton:hover{
+		color: black;
+}
+/* title of the right content*/
+.portfolioContentTitle{
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}

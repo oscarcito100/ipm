@@ -1,0 +1,104 @@
+/* portfolio in local currency*/
+.portfolioNavbar{
+	display: inline;
+	width: 100px;
+}
+/* buttons*/
+.portfolioButtons{
+	border-radius: 20px;
+	background-color: #f2f2f2;
+	color: blue;
+	text-align: center;
+	cursor: pointer;			
+}
+.portfolioButtons:hover{
+	color: red;
+}
+
+/*.portfolioButtons{
+	background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 1px solid black;
+	transition-duration: 0.4s;
+}
+.portfolioButtons:hover, .holdingButtons:hover, .editButton:hover{
+	background-color: black;
+	color: white;
+}
+.holdingButtons{
+	background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 1px solid black;
+	transition-duration: 0.4s;
+}
+.editButton{
+	background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+	cursor: pointer;
+	padding: 5px 10px;
+	border-radius: 10px;
+	border: 1px solid black;
+	transition-duration: 0.4s;
+}*/
+#portfolioForeignTable, #portfolioLocalTable{
+	border-collapse: collapse;
+	width: 100%;
+	empty-cells: hide;
+}
+#portfolioForeignTable thead, #portfolioForeignTable tbody, #portfolioForeignTable tfoot{
+	border: 1px solid black;	
+	text-align: center;
+}
+#portfolioForeignTable tbody, #portfolioForeignTable tfoot{
+	background-color: white;
+}
+#portfolioForeignTable tbody tr{
+	border-bottom: 1px solid #ddd;
+}
+#portfolioForeignTable tbody tr:last-child{
+	border-bottom: 1px solid black;
+}
+#portfolioForeignTable thead{
+	background-color: #4CAF50; /* Green */
+    color: white;
+}
+.portfolioInLocalCurrency{
+	background-color: #f2f2f2;
+	border: 1px solid black;
+}
+#portfolioLocalTable{
+	border-collapse: collapse;
+	width: 100%;
+}
+#portfolioLocalTable thead, #portfolioLocalTable tbody, #portfolioLocalTable tfoot{
+	border: 1px solid black;	
+	text-align: center;
+}
+#portfolioLocalTable tbody, #portfolioLocalTable tfoot{
+	background-color: white;
+}
+#portfolioLocalTable tbody tr{
+	border-bottom: 1px solid #ddd;
+}
+#portfolioLocalTable tbody tr:last-child{
+	border-bottom: 1px solid black;
+}
+#portfolioLocalTable thead{
+	background-color: #4CAF50; /* Green */
+    color: white;
+}

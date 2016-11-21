@@ -1,0 +1,75 @@
+/* style of all buttons*/
+.investmentButton{
+	border-radius: 20px;
+	background-color: #f2f2f2;
+	color: blue;
+	text-align: center;
+	cursor: pointer;
+	padding: 5px 10px;
+}
+.investmentButton:hover{
+	color: red;
+}
+/* input text fields*/
+.inputCalculator{
+	padding-left: 10px;
+}
+/* calculate foreign invesment*/
+#foreignInvestmentTable{
+	background-color: #ffffe6;
+    margin:auto;
+	padding: 10px;
+}
+#formPredicter{
+	background-color: #ffffe6;
+    margin:auto;
+	padding: 10px;
+}
+/* disabled  text fields*/
+#exchangeRate,#valueToInvestInForeignCurrency, #numberOfShares, #initialInvestmentForeign, #initialExchangeRate{
+	color: black;
+	background-color: #ddd;
+	padding-left: 10px;
+}
+/* predicter table*/
+#predicterTable{
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin: auto;
+}
+#predicterTable tbody th, #predicterTable tbody td, #predicterTable tfoot td, #predicterTable thead th{
+	border-right: 1px solid black;
+	padding: 5px 10px;	
+}
+#predicterTable thead, #predicterTable tbody th{	
+	background-color: #4CAF50;
+    color: white;
+}
+#predicterTable thead{
+	border-bottom: 1px solid black;
+}
+#predicterTable tbody th{
+	text-align: left;
+}
+#predicterTable tbody td{
+	text-align: center;
+}
+#predicterTable tbody, #predicterTable tfoot{
+	background-color: white;
+}
+#predicterTable tbody tr{
+	border-bottom: 1px solid #ddd;
+}
+#predicterTable tbody tr:last-child{
+	border-bottom: 1px solid black;
+}
+#predicterTable thead tr:last-child{
+	border-bottom: 1px solid black;
+}
+#predicterTable tfoot tr{
+		border-bottom: 1px solid black;
+}
+thead tr th #firstCell{
+	background-color: white;
+	border-top-style: none; 
+}

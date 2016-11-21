@@ -1,0 +1,53 @@
+/* form to create portofolio*/
+.createPortfolioForm{
+	margin: auto;
+	background-color: #ffffe6;
+	width: 50%;
+	padding: 16px;
+	border-radius: 10px;
+	text-align: center;
+}
+/*input fields */
+#inputPortfolioName{
+    width: 100%;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	border-radius: 15px;
+}
+/* labels*/
+#labelCreatePortfolio{
+	font-weight: bold;
+}
+/* Set a style for Log in button */
+#createPortfolioButton{
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;	
+	border-radius: 15px;
+	text-align: center;
+}
+#createPortfolioButton:hover{
+	color: black;
+}
+/* style for the cancel button */
+#cancelPortfolioButton{
+    width: 100%;
+    padding: 14px 20px;
+	margin: 8px 0;
+    background-color: #f44336;
+	color: white;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 15px;
+	cursor: pointer;
+}
+#cancelPortfolioButton:hover{
+	color: black;
+}
