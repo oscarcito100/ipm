@@ -1,0 +1,179 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title id="stockTitleName"></title>
+	<!--JQuery AJAX library-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+	<script src="../../js/individualStockData.js"></script>
+	<script src="../../js/validateRegisterForm.js"></script> <!-- validate sign up form with js-->
+	<script src="../../js/validateLogInFormForm.js"></script> <!-- validate log in form with js-->
+	<script type="text/javascript" src="https://d33t3vvu2t2yu5.cloudfront.net/tv.js"></script>	<!-- TradingView  -->
+	<link rel="stylesheet"  type="text/css" href="../../css/header.css">
+	<link rel="stylesheet"  type="text/css" href="../../css/stocks.css">
+	<link rel="stylesheet"  type="text/css" href="../../css/logIn.css">
+	<link rel="stylesheet"  type="text/css" href="../../css/headerTitle.css">
+</head>
+<body onload="start()">
+	<div class="header">
+		<span class="home">
+			<a href="../../home/home.php" title="Clik here to return to the home page"><img src="../../images/logo.gif" alt="International Portfolio Manager" height="70px" width="130px"/></a>
+		</span>
+			<form action="" class="search">
+				<input type="text" placeholder="AAPL or apple..." size="50"/>
+				<button class="searchButton" type="search">SEARCH</button>
+			</form>
+			<span class="date"><?php echo date(" l d/m/Y h:i:sa"); ?><br></span>
+			<?php
+			if(isset($_SESSION["username"]) == TRUE){
+				echo "<span class='sign'>Hi, " .$_SESSION["username"]. "<a href='../../php/logOut.php'> Log Out?</a></span>";
+			} else{
+				echo "<span class='sign'><a href='../../home/signUp.html'>Sign up</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href='#signInModal' onclick=\"document.getElementById('signInModal').style.display='block'\">Sign in</a></span>"; // escape double quotes
+			}
+			?>
+			<ul class="navbar">
+					<li class="dropdown"><a class="active" href="../../market/djia.php">MARKET</a>
+						<!--<div class="dropdown-content">
+							<a href="market.html">EQUITIES</a>
+							<a href="">INDICES</a>
+							<a href="../currencies/currencies.html">CURRENCIES</a>
+						</div>-->
+					</li>
+					<li><a href="../../watchlist/watchlist.php">WATCHLIST</a></li>
+					<li><a href="../../calculator/calculator.php">CALCULATOR</a></li>
+					<li><a href="../../portfolio/portfolio.php">PORTFOLIO MANAGER</a></li>
+					<li><a href="../../contact/contact.php">CONTACT</a></li>
+				</ul>
+	</div>
+	<div class="titlePage">	
+		<span class="mainTitle" id="stockName"></span>
+		<span class="subTitle">AMERICAN STOCKS</span>
+	</div>
+	<hr class="titleLine">
+	<div class="mainContent">
+		<table id="stockTable">
+			<tr><th></th><th></th><th></th><th></th><td></td><td></td></tr>
+		</table>
+		<br>
+		<div class="buttonsLine">
+			<a href="../../market/djia.php"><button class="stocksButtons" id="djiaButton" type="button">DOW 30</button></a>
+			<a href="../../market/dax.php"><button class="stocksButtons" id="daxButton" type="button">DAX</button></a>
+			<a href="../../market/ftse100.php"><button class="stocksButtons" id="ftse100Button"type="button">FTSE 100</button></a>
+			<a href="../../market/currencies.php"><button class="stocksButtons" id="currenciesButton"type="button">MAJOR CURRENCIES</button></a>
+		</div>
+		<br>
+		<!--<div class="chart">
+			<img id="imgChart_0" src="stock_chart_yahoo_finance/aapl.png" border="1" style="width:650px;height:450px;" color="green"/><br />
+			<a class="linkText" href='javascript:changeChart(0,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div1d_0">1d</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(1,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div5d_0">5d</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(2,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div3m_0">3m</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(3,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div6m_0">6m</span></a>&nbsp;&nbsp;
+			<a id="link1" class="linkText" href='javascript:changeChart(4,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div1y_0">1y</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(5,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div2y_0">2y</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(6,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="div5y_0">5y</span></a>&nbsp;&nbsp;
+			<a class="linkText" href='javascript:changeChart(7,0,%20&quot;y/aapl&quot;,%20&quot;AAPL&quot;);'><span id="divMax_0"><b>msx</b></span></a>
+		</div>-->
+<script>
+new TradingView.widget({
+  "width": 1000,
+  "height": 500,
+  "symbol": "NASDAQ:AAPL",
+  "interval": "D",
+  "timezone": "Etc/UTC",
+  "theme": "White",
+  "style": "1",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_side_toolbar":false,
+  "allow_symbol_change": true,
+  "hideideas": true,
+  "show_popup_button": true,
+  "popup_width": "1000",
+  "popup_height": "650"
+});
+document.getElementById("hola").innerHTML = TradingView.widget;
+</script>
+		<br>
+		<table id="statisticsTable">
+			<tr><th colspan="2" style="text-decoration: underline;">STATISTICS</th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>	
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>
+			<tr><td></td><th></th></tr>		
+		</table>
+		<table id="ratiosTable">
+			<tr><th colspan="4" style="text-decoration: underline;">FINANCIAL RATIOS</th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+		</table>
+		<table id="technicalTable">
+			<tr><th colspan="4" style="text-decoration: underline;">TECHNICAL DATA</th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+			<tr><td></td><th></th><td></td><th></th></tr>
+		</table>
+	</div>
+<!-- The  Log in Modal -->
+<div id="signInModal" class="modal">
+	<span onclick="document.getElementById('signInModal').style.display='none'" class="close" title="Close Modal">&times;</span>
+	<!-- Modal Content -->
+	<form class="modal-content animate" action="../../php/logIn.php" name="formLogIn" onsubmit="return validateLogInForm()" method="post"> 
+		<div class="container">
+			<label class="formTitles">Username:</label><br/>
+			<input class="logInFields" type="text" name="username" size="50" placeholder="Enter Username" minlength="6" required/> 			
+			<label class="formTitles">Password:</label><br/>
+			<input class="logInFields" type="password" name="password" size="50" placeholder="Enter Password" minlength="10" maxlength="20" required/>
+			<input type="checkbox" name="checkRemember" checked="checked"/> Remember me 
+			<span class="rightSide"><a href="lostPassword.html">Retrieve Password</a></span>
+			<button type="submit" class="logInButton" title="register" name="submit">LOG IN</button><br/>
+		</div>
+		<div class="containerBottom">
+			<button type="button" class="cancelButton" onclick="document.getElementById('signInModal').style.display='none'" title="Cancel Log in">CANCEL</button><br/>
+			<p class="footerLogIn">Don't you have an account? <a href="../../home/signUp.html">Register now here</a></p>
+			<p class="footerLogIn">By proceeding, you agree to the IPM's Terms of service & Privacy policy</p>
+		</div>
+	</form>
+</div>
+<!--
+1.removed br from dax and dow stocks
+2.copy:  "hide_side_toolbar":false,in all stocks
+3. change de size of chart
+3. copy new id in title tag in all the ftse stocks
+-->
+<hr id="footerLine"/>
+<div><?php require("../../php/footer.php"); ?></div>
+<div id="hola"></div>
+<script>
+var BASE_URL = 'https://query.yahooapis.com/v1/public/yql?q=';
+var yql_query = 'select * from yahoo.finance.quotes where symbol in ("AAPL")';
+</script>
+<script>
+// Get the modal for sign in
+var signInModal = document.getElementById('signInModal');
+// When the user clicks anywhere outside of the modal, close it
+ window.onclick = function(event) {
+    if (event.target == signInModal) {
+        signInModal.style.display = "none";
+    }
+}
+</script>
+</body>
+</html>
